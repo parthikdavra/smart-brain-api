@@ -27,7 +27,7 @@ app.get('/', (req, res) => { res.send('Its working') })
 
 app.post('/signin', (req, res) => { signin.signInHandler(req, res, db, bcrypt) });
 
-app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) });
+app.post('/register', (req, res) => { register.registerHandler(req, res, db, bcrypt) });
 
 app.get('/profile/:id', (req, res) => { profile.profileHandler(req, res, db) });
 
