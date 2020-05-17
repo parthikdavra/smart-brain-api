@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
+  "engines": {
+    "node": ">=13.10"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -21,5 +24,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parthikdavra/smart-brain-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/parthikdavra/smart-brain-api/issues"
+  },
+  "homepage": "https://github.com/parthikdavra/smart-brain-api#readme"
 }
