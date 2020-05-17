@@ -23,18 +23,18 @@ var app = express();
 app.use(bodyParser.json());
 app.use(cors())
 
-app.get('/', (req, res) => {res.send(db.users)})
+app.get('/', (req, res) => { res.send(db.users) })
 
-app.post('/signin', (req, res) => {signin.signInHandler(req,res,db,bcrypt)});
+app.post('/signin', (req, res) => { signin.signInHandler(req, res, db, bcrypt) });
 
-app.post('/register', (req,res) => {register.handleRegister(req,res,db,bcrypt)});
+app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) });
 
-app.get('/profile/:id', (req, res) => {profile.profileHandler(req,res,db)});
+app.get('/profile/:id', (req, res) => { profile.profileHandler(req, res, db) });
 
-app.put('/image', (req, res) => {image.imageHandler(req,res,db)});
+app.put('/image', (req, res) => { image.imageHandler(req, res, db) });
 
-app.post('/imageUrl', (req, res) => {image.handleApiCall(req,res)}) ;
+app.post('/imageUrl', (req, res) => { image.handleApiCall(req, res) });
 
-app.listen(3001, () => {
-    console.log("We are runing on server 3001");
+app.listen(process.env.PORT || 3001, () => {
+    console.log(`We are runing on server ${process.env.PORT}`);
 })
