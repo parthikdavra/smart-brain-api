@@ -1,10 +1,10 @@
 const Clarifai = require('clarifai');
 
 const app = new Clarifai.App({
-    apiKey: '522348874a8246f0b8b9fe93b41780c7' 
+    apiKey: '522348874a8246f0b8b9fe93b41780c7'
 });
 
-const imageHandler = (req,res,db) =>{
+const imageHandler = (req, res, db) => {
     const { id } = req.body;
     db('users')
         .where('id', '=', id)
@@ -16,15 +16,15 @@ const imageHandler = (req,res,db) =>{
         .catch(err => res.status(400).json('unable to get count entries'))
 }
 
-const handleApiCall = (req,res)=>{
+const handleApiCall = (req, res) => {
     app.models.predict(Clarifai.FACE_DETECT_MODEL, req.body.input)
-    .then(data => {
-        res.json(data);
-    })
-    .catch(err => res.status(400).json('unable to work with API'))
+        .then(data => {
+            res.json(data);
+        })
+        .catch(err => res.status(400).json('enter valid image link for recognization'))
 }
 
 module.exports = {
-    imageHandler:imageHandler,
-    handleApiCall:handleApiCall
+    imageHandler: imageHandler,
+    handleApiCall: handleApiCall
 }
